@@ -1,14 +1,15 @@
 # bluebucketpi
 
 A Flask webapp that runs python code on a Raspberry Pi to control and monitor a growing plant... usually in a SpaceBucket (https://www.reddit.com/r/SpaceBuckets/), hence the name. But it could be adapted to other use cases.
-The webapp will have the rPi take pictures (for time-lapses), read sensors (moisture, humidity, temperature), control fans, lights and water pumps, and write data to a csv file as well as to an epaper display.
-Original idea and starting code forked from: https://gist.github.com/benrules2/c4f3db455f4f2dfbe7d5b825b0b4ee36
+The webapp will have the rPi take pictures (for time-lapses), read sensors (moisture, humidity, temperature), control fans, lights and water pump, and write data to a csv file as well as to an epaper display.
+Starter idea and initial code forked from: https://gist.github.com/benrules2/c4f3db455f4f2dfbe7d5b825b0b4ee36
+Check their tutorial here as well: https://www.hackster.io/ben-eagan/raspberry-pi-automated-plant-watering-with-website-8af2dc
 
 ## Hardware Materials:
 - A Raspberry Pi (I used a 3B+ I had collecting dust - you might have to steal or beg for one in 2023), and a 32GB micro SD card.
 - A 4channel relay (5volt for microcontrollers - used this one: https://www.amazon.com/dp/B08PP8HXVD)
-- A capacitance moisture sensor (used the "v1.2" available online. Kit: https://www.amazon.com/dp/B07TLRYGT1)
-- An Analog-to-digital converter ADS1115 (for the rPi to read the moisture sensor. Like this one https://www.amazon.com/dp/B07VPFLSMX)
+- A capacitance moisture sensor (used the "v1.2" available online. Kit: https://www.amazon.com/dp/B07TLRYGT1) - Resistance ones corrode easily.
+- An Analog-to-digital converter ADS1115 (for the rPi to read the capacitance moisture sensor. Like this one https://www.amazon.com/dp/B07VPFLSMX)
 - A low voltage water pump (included in the kit above with the moisture sensor)
 - DHT22 sensor (eg: https://www.amazon.com/dp/B073F472JL)
 - 80mm computer fans (used 2 to create airflow: https://www.amazon.com/dp/B002YFSHPY)
@@ -21,16 +22,18 @@ Original idea and starting code forked from: https://gist.github.com/benrules2/c
 
 ## Software Materials:
 - Started with latest Raspbian fully loaded
-- Python3, with pip3... YMMV:
+- Python3, with pip3.. and these packages. YMMV:
  ```
-  sudo apt-get update
-  sudo apt-get upgrade
-  sudo apt-get install python3-dev python3-pip
-  sudo apt-get install build-essential python3-smbus
-  sudo apt-get install python3-pil
-  ```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python3-dev python3-pip
+sudo apt-get install build-essential python3-smbus
+sudo apt-get install python3-pil
+sudo apt-get install ffmpeg
+```
 - DHT sensor and ADS1x15 packages:
 ```
+sudo pip3 install RPi.GPIO
 sudo pip3 install Adafruit_DHT
 sudo pip3 install Adafruit-ADS1x15
 ```
@@ -43,7 +46,7 @@ sudo pip3 install psutil
 ```
 /path/to/project/python_scripts_go_here.py
 /path/to/project/templates/main.html
-/path/to/project/static/read_readme.txt_4_more_details
+/path/to/project/static/ # for image files. Read the readme there for more details.
 ```
 - ePaper: Waveshare lib and pic folder from their repo: 
 ```
