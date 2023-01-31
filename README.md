@@ -2,8 +2,7 @@
 
 A Flask webapp that runs python code on a Raspberry Pi to control and monitor a growing plant... usually in a SpaceBucket (https://www.reddit.com/r/SpaceBuckets/), hence the name. But it could be adapted to other use cases.
 The webapp will have the rPi take pictures (for time-lapses), read sensors (moisture, humidity, temperature), control fans, lights and water pump, and write data to a csv file as well as to an epaper display.
-Starter idea and initial code forked from: https://gist.github.com/benrules2/c4f3db455f4f2dfbe7d5b825b0b4ee36
-Check their tutorial here as well: https://www.hackster.io/ben-eagan/raspberry-pi-automated-plant-watering-with-website-8af2dc
+Starter idea and initial code forked from here: https://www.hackster.io/ben-eagan/raspberry-pi-automated-plant-watering-with-website-8af2dc
 
 ## Hardware Materials:
 - A Raspberry Pi (I used a 3B+ I had collecting dust - you might have to steal or beg for one in 2023), and a 32GB micro SD card.
