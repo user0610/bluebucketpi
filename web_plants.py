@@ -181,10 +181,11 @@ if __name__ == "__main__":
 
         # Star the webapp
         # choose one app.run() and disable the rest                   
-        #app.run(host='0.0.0.0', port=80, debug=True)   # Plain old HTTP on port 80
+        
         #app.run(host='0.0.0.0', debug=True, ssl_context='adhoc') # This a quick and dirty HTTPS/SSL on port 5000
-        context = ('./certificates/server.crt', './certificates/server.key') # Sets context to your SSL certificates needed for below app.run()
-        app.run(host='0.0.0.0', port=4420, debug=True, ssl_context=context) # This sets HTTPS/SSL on port 4420 :) using your certs above
+        #context = ('./certificates/server.crt', './certificates/server.key') # Sets context to your SSL certificates needed for below app.run()
+        #app.run(host='0.0.0.0', port=4420, debug=True, ssl_context=context) # This sets HTTPS/SSL on port 4420 :) using your own certs above
+        app.run(host='0.0.0.0', port=80, debug=True)   # Plain old HTTP on port 80 good enough for internal/safe network
     except KeyboardInterrupt:
         os.system ("pkill -f water.py")
         water.destroy()
