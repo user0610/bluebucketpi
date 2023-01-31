@@ -14,7 +14,7 @@ Starter idea and initial code forked from here: https://www.hackster.io/ben-eaga
 - 80mm computer fans (used 2 to create airflow: https://www.amazon.com/dp/B002YFSHPY)
 - LED grow lights (used a stick-on LED strip light: https://www.amazon.com/gp/product/B00HSF65MC)
 - rPi camera (eg: https://www.amazon.com/dp/B07KF7GWJL)
-- A 2.7in Waveshare ePaper display (eg: https://www.amazon.com/dp/B07PKSZ3XK)
+- A 2.7in Waveshare ePaper display (eg: https://www.amazon.com/dp/B07PKSZ3XK) - I choose that one to be able to use the buttons on it too, however, I have yet to figure out how to access them.
 - Power strip and Power supplies (used some USB charger blocks, an some 12v power adapters - mainly on each for the rPi, fans, pump, lights - sensors can be powered from the GPIO pins
 - An enclosure - used some clear Sterilite storage box and made holes for the wiring
 - Hardware store 5ga buckets (About 4) - check https://www.reddit.com/r/SpaceBuckets/ for details on how to build one.
