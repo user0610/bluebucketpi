@@ -64,27 +64,40 @@ $ sudo crontab -e
 ## Wiring
 
 Check out [pinout.xyz](https://pinout.xyz/) for pin details. We will use BOARD (Broadcom) pin assignment, which is the sequential number just next to the pin (There is an exception for the DHT22 sensor that I called out in the code).
+I used a breadboard with a GPIO expansion board, and highly recommend it: https://www.amazon.com/gp/product/B07ZYR7R8X
 
-### Relay Pins
+### Sensors
 
 DHT sensor: 
- - Signal to 40 or GPIO21(in the code needs to be entered the BCM number: 21)
+ - Signal plugs into pin 40 or GPIO21 (in the code needs to be entered the BCM number: 21)
+ - Ground ->(any GND pin available)
+ - VCC -> a 3.3v pwr pin (1 or 17)
+ - Note: The DHT22 listed in the Hardware Materials comes with a tiny board that contains a resistor. You do NOT need a 10KΩ resistor in line with it if you get that one.
+ 
 Soil moisture sensor: 
  - Signal plugs into the ADS1115at: A0
+ - Ground ->(any GND pin available)
+ - VCC -> a 3.3v pwr pin (1 or 17)
+ 
 ADS1115: 
  - SCL-> 5 (SCL on rpi)
  - SDA -> 3 (SDA on rpi)
+ - Ground ->(any GND pin available)
+ - VDD -> a 3.3v pwr pin (1 or 17)
+ 
+ Pi Camera:
+ - Ribbon goes into the camera module of the rpi.
+ - For more details on how to enable it, check: https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2
 
+### Relay Pins
 
-more TBD...
-
-PUMP_PIN=38 # To relay channel IN1
-IN2_PIN=36 # for fans
-IN3_PIN=32 # available... potentially heat mat, not use yet.
-IN4_PIN=37 # for lights
-
-
-
+- Channel1: PUMP_PIN=38 # To relay channel IN1
+- Channel2: IN2_PIN=36 # for fans
+- Channel3: IN3_PIN=32 # available... potentially heat mat, not use yet.
+- Channel4: IN4_PIN=37 # for lights
+- Ground ->(any GND pin available)
+- VDD -> a 5v pwr pin (2 or 4)
+- Then wire in-line the power of each device to the NO and COM on the corresponding relay..
 
 ## Pics
 [Gallery in imgur](https://imgur.com/gallery/pSPXdEN)
