@@ -17,6 +17,8 @@ Starter idea and initial code forked from here: https://www.hackster.io/ben-eaga
 - A 2.7in Waveshare ePaper display (eg: https://www.amazon.com/dp/B07PKSZ3XK) - I choose that one to be able to use the buttons on it too, however, I have yet to figure out how to access them.
 - Power strip and Power supplies (used some USB charger blocks, an some 12v power adapters - mainly on each for the rPi, fans, pump, lights - sensors can be powered from the GPIO pins
 - An enclosure - used some clear Sterilite storage box and made holes for the wiring
+- Breadboard with expansion GPIO board and holder. It made it really easy to mount the rPi and other electronics: https://www.amazon.com/gp/product/B07ZYR7R8X
+- Jump wires to connect everything with minimal soldering: https://www.amazon.com/dp/B07GD2PGY4
 - Hardware store 5ga buckets (About 4) - check https://www.reddit.com/r/SpaceBuckets/ for details on how to build one.
 
 ## Software Materials:
