@@ -104,7 +104,7 @@ ADS1115:
 - Then wire in-line the power of each device to the NO and COM on the corresponding relay.
 
 ### ePaper
-The ePaper linked comes as a HAT and also has a wire. We would use the wire the HAT will not fit with other cables connected to the GPIO - [Waveshare page](https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT_Manual#Working_With_Raspberry_Pi) - Use "Board" column under Hardware Connection.
+The ePaper linked comes as a HAT and also has a wire. We would use the wire the HAT will not fit with other cables connected to the GPIO - [Waveshare page](https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT_Manual#Working_With_Raspberry_Pi) - Use "Board" column under Hardware Connection. Then as documented on epaper.py, I needed to modify the ./lib/waveshare_epd/epdconfig.py and change the pin numbers as below as well as line 68: changefrom BCM to BOARD
 
 - RST_PIN  = 11
 - DC_PIN   = 22
