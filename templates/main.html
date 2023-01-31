@@ -1,0 +1,45 @@
+<!-- Place main.html file inside your Flask template folder: /path/to/project/templates/main.html -->
+<!DOCTYPE html>
+<head>
+  <style>
+  .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .button1 {font-size: 10px;}
+    .button2 {font-size: 12px;}
+    .button3 {font-size: 16px;}
+    .button4 {font-size: 20px;}
+    .button5 {font-size: 30px; width: 400px;}
+    </style>
+  <title>{{ title }}</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+  <a href="/"><img src="/static/yourbucketapp_logo.png" alt="logo"height="100px"></a>
+  <h2>Current time: {{ time }}</h2>
+  <h2> {{ text }} </h2>
+  <center>
+  <a href="/auto/water/ON"><button class="button button5">Turn ON Auto Watering</button></a>
+  <a href="/auto/water/OFF"><button class="button button5">Turn OFF Auto Watering</button></a>
+  <a href="/sensor"><button class="button button5">Check Plant Status</button></a> <br>
+  <a href="/fans/ON"><button class="button button5">Turn ON Fans</button></a>
+  <a href="/fans/OFF"><button class="button button5">Turn OFF Fans</button></a>
+  <a href="/lights/ON"><button class="button button5">Turn ON Lights</button></a>
+  <a href="/lights/OFF"><button class="button button5">Turn OFF Lights</button></a>
+  <a href="/water"><button class="button button5">Water Once</button></a>
+  <a href="/last_watered"><button class="button button5">Last Watered?</button></a>
+  <img src="{{ plant_image }}" alt="pine_express"height="540px">
+  </center>
+
+</body>
+</html>
