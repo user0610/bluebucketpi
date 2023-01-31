@@ -19,7 +19,6 @@ Starter idea and initial code forked from here: https://www.hackster.io/ben-eaga
 - An enclosure - used some clear Sterilite storage box and made holes for the wiring
 - Hardware store 5ga buckets (About 4) - check https://www.reddit.com/r/SpaceBuckets/ for details on how to build one.
 
-
 ## Software Materials:
 - Started with latest Raspbian fully loaded
 - Python3, with pip3.. and these packages. YMMV:
@@ -28,7 +27,6 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python3-dev python3-pip
 sudo apt-get install build-essential python3-smbus
-sudo apt-get install python3-pil
 sudo apt-get install ffmpeg
 ```
 - DHT sensor and ADS1x15 packages:
@@ -48,9 +46,15 @@ sudo pip3 install psutil
 /path/to/project/templates/main.html
 /path/to/project/static/ # for image files. Read the readme there for more details.
 ```
-- ePaper: Waveshare lib and pic folder from their repo: 
+- ePaper: Waveshare lib and pic folder from their repo, copy into your project folder. In samples, you can run and checkout epd_2in7_test.py - FYI, I could not run epd_2in7_V2_test.py successfully.
+ 
 ```
+sudo apt-get install python3-numpy
+sudo apt-get install python3-pil
+sudo pip3 install spidev
 git clone https://github.com/waveshare/e-Paper.git
+sudo raspi-config
+Choose Interfacing Options -> SPI -> Yes Enable SPI interface
 ```
 - setup root crontab like this (starts webapp, starts the time-lapse picture-taking, starts the stats printing/monitoring, creates a time-lapse mp4 daily at 5am):
 ```
@@ -86,7 +90,7 @@ ADS1115:
  - VDD -> a 3.3v pwr pin (1 or 17)
  
  Pi Camera:
- - Ribbon goes into the camera module of the rpi.
+ - Ribbon goes into the camera module of the rpi. Note: the one linked above comes with a 6in ribbon, which was enough for installing inside and reaching back to the rpi.
  - For more details on how to enable it, check: https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2
 
 ### Relay Pins
@@ -97,7 +101,18 @@ ADS1115:
 - Channel4: IN4_PIN=37 # for lights
 - Ground ->(any GND pin available)
 - VDD -> a 5v pwr pin (2 or 4)
-- Then wire in-line the power of each device to the NO and COM on the corresponding relay..
+- Then wire in-line the power of each device to the NO and COM on the corresponding relay.
+
+### ePaper
+The ePaper linked comes as a HAT and also has a wire. We would use the wire the HAT will not fit with other cables connected to the GPIO - [Waveshare page](https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT_Manual#Working_With_Raspberry_Pi) - Use "Board" column under Hardware Connection.
+
+- RST_PIN  = 11
+- DC_PIN   = 22
+- CS_PIN   = 24
+- BUSY_PIN = 18
+- MOSI = 19
+- Ground ->(any GND pin available)
+- VCC -> a 3.3v pwr pin (1 or 17)
 
 ## Pics
 [Gallery in imgur](https://imgur.com/gallery/pSPXdEN)
