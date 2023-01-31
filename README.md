@@ -15,9 +15,10 @@ Starter idea and initial code forked from here: https://www.hackster.io/ben-eaga
 - LED grow lights (used a stick-on LED strip light: https://www.amazon.com/gp/product/B00HSF65MC)
 - rPi camera (eg: https://www.amazon.com/dp/B07KF7GWJL)
 - A 2.7in Waveshare ePaper display (eg: https://www.amazon.com/dp/B07PKSZ3XK)
-- Power supplies (used some USB charger blocks, an some 12v power adapters - mainly on each for the rPi, fans, pump, lights - sensors can be powered from the GPIO pins)
+- Power strip and Power supplies (used some USB charger blocks, an some 12v power adapters - mainly on each for the rPi, fans, pump, lights - sensors can be powered from the GPIO pins
 - An enclosure - used some clear Sterilite storage box and made holes for the wiring
-- Hardware store buckets - check https://www.reddit.com/r/SpaceBuckets/ for details on how to build one.
+- Hardware store 5ga buckets (About 4) - check https://www.reddit.com/r/SpaceBuckets/ for details on how to build one.
+
 
 ## Software Materials:
 - Started with latest Raspbian fully loaded
@@ -59,6 +60,31 @@ $ sudo crontab -e
 @reboot cd /path/to/project/; python3 print_status_epaper.py
 0 5 * * * cd /path/to/project/static/time-lapse/; ffmpeg -f image2 -r 30 -i ./%05d.jpg -vcodec mpeg4 -vb 4M -y time-lapse.mp4
 ```
+
+## Wiring
+
+Check out [pinout.xyz](https://pinout.xyz/) for pin details. We will use BOARD (Broadcom) pin assignment, which is the sequential number just next to the pin (There is an exception for the DHT22 sensor that I called out in the code).
+
+### Relay Pins
+
+DHT sensor: 
+ - Signal to 40 or GPIO21(in the code needs to be entered the BCM number: 21)
+Soil moisture sensor: 
+ - Signal plugs into the ADS1115at: A0
+ADS1115: 
+ - SCL-> 5 (SCL on rpi)
+ - SDA -> 3 (SDA on rpi)
+
+
+more TBD...
+
+PUMP_PIN=38 # To relay channel IN1
+IN2_PIN=36 # for fans
+IN3_PIN=32 # available... potentially heat mat, not use yet.
+IN4_PIN=37 # for lights
+
+
+
 
 ## Pics
 [Gallery in imgur](https://imgur.com/gallery/pSPXdEN)
