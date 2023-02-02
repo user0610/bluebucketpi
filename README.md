@@ -58,7 +58,13 @@ git clone https://github.com/waveshare/e-Paper.git
 sudo raspi-config
 Choose Interfacing Options -> SPI -> Yes Enable SPI interface
 ```
-- setup root crontab like this (starts webapp, starts the time-lapse picture-taking, starts the stats printing/monitoring, creates a time-lapse mp4 daily at 5am):
+- You can start the different scripts as:
+```
+sudo python3 web_plants.py > stdout.log 2> stderr.log
+python3 start_time_lapse.py
+python3 print_status_epaper.py
+```
+- Once confirmed that everything is running as expected, you can setup the root crontab like this (starts webapp, starts the time-lapse picture-taking, starts the stats printing/monitoring, creates a time-lapse mp4 daily at 5am):
 ```
 $ sudo crontab -e
 @reboot cd /path/to/project/; python3 web_plants.py > stdout.log 2> stderr.log
